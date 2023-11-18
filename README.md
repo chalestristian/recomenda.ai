@@ -13,19 +13,28 @@
     <span>Bem-vindo ao <b>recomenda.ai</b><span>
     <br/>
   </p>
+  
   <details>      
-    <summary><b>Sumário</b></summary>
-      <ul style="list-style-type: none; padding-left: 10px;">
-        <li><a href="#sobre">Sobre o Projeto</a></li>
-        <li><a href="#dataset">Dataset</a></li>
-        <li><a href="#design">Design</a></li>
-        <li><a href="#pipeline">Pipeline</a></li>
-        <li><a href="#artefatos">Artefatos</a></li>
-        <li><a href="#instalar">Instalar & Executar</a></li>
-        <li><a href="#desenvolvidocom">Desenvolvido Com</a></li>
-        <li><a href="#desenvolvidopor">Desenvolvido Por</a></li>
-        <li><a href="#fontes">Fontes</a></li>
-      </ul>
+  <summary><b>Sumário</b></summary>
+
+  [Sobre o Projeto](#sobre)
+
+  [Dataset](#dataset)
+
+  [Design](#design)
+
+  [Pipeline](#pipeline)
+
+  [Artefatos](#artefatos)
+
+  [Instalar & Executar](#instalar)
+
+  [Desenvolvido Com](#desenvolvidocom)
+
+  [Desenvolvido Por](#desenvolvidopor)
+
+  [Fontes](#fontes)
+
   </details>
   <br/>
 </div>
@@ -47,25 +56,25 @@
   <b>Considerações:</b>
 
   * A recomendação deve ocorrer de duas formas. 
-    * <input type="checkbox">  A primeira deve ser uma recomendação baseada no histórico do usuário.
-    * <input type="checkbox">  A segunda deve ser uma recomendação baseada no perfil pessoal do usuário.
+    * [ ] A primeira deve ser uma recomendação baseada no histórico do usuário.
+    * [ ] A segunda deve ser uma recomendação baseada no perfil pessoal do usuário.
 
   <br/>
   <b>Exigências:</b>
 
-  * <input type="checkbox" checked> O desenvolvimento deve ser feito em Python (versão 3.8 ou superior)
-  * <input type="checkbox"> O ambiente de desenvolvimento deve ser capaz de ser reproduzido a qualquer momento.
-  * <input type="checkbox" checked> O dataset será fornecido pela Netflix.
-  * <input type="checkbox"> Sua equipe deverá fornecer insigths relevantes sobre a base de dados:
+  * [x] O desenvolvimento deve ser feito em Python (versão 3.8 ou superior)
+  * [ ] O ambiente de desenvolvimento deve ser capaz de ser reproduzido a qualquer momento.
+  * [x] O dataset será fornecido pela Netflix.
+  * [ ] Sua equipe deverá fornecer insigths relevantes sobre a base de dados:
     * Estes insights também serão utilizados pela Netflix para melhorar seu processo de Engenharia de Dados. 
     * Para seu time, os insights serão os guias no desenho dos modelos de recomendação.
-  * <input type="checkbox"> Deverão ser criados pelo menos 2 modelos com abordagens diferentes.
-    * <input type="checkbox"> MODELO X
-    * <input type="checkbox"> MODELO Y
-  * <input type="checkbox"> Todas as decisões de modelagem, definição de hyper parametros e etc devem ser documentadas e justificadas do porque da utilização.
-  * <input type="checkbox"> Deverá ser apresentado relatório completo do desempenho dos modelos treinados, considerando métricas relevantes para a análise destes desempenhos.
-  * <input type="checkbox"> A equipe deverá criar um pipeline teórico de deploy completo do projeto em alguma plataforma de núvem (ex: Google Cloud Platform, AWS, Microsoft Azure).
-  * <input type="checkbox" checked> O Projeto deverá ser publicado em repositório GIT.
+  * [ ] Deverão ser criados pelo menos 2 modelos com abordagens diferentes.
+    * [ ] MODELO X
+    * [ ] MODELO Y
+  * [ ] Todas as decisões de modelagem, definição de hyper parametros e etc devem ser documentadas e justificadas do porque da utilização.
+  * [ ] Deverá ser apresentado relatório completo do desempenho dos modelos treinados, considerando métricas relevantes para a análise destes desempenhos.
+  * [ ] A equipe deverá criar um pipeline teórico de deploy completo do projeto em alguma plataforma de núvem (ex: Google Cloud Platform, AWS, Microsoft Azure).
+  * [x] O Projeto deverá ser publicado em repositório GIT.
   <br/>
 </div>
 
