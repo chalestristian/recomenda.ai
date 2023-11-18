@@ -7,10 +7,10 @@
     <img src="readme_img/logo.png" alt="Logo" width="80" height="80">
   </p>
 
-  <h2 align="center">PROJECT TITLE</h2>
+  <h2 align="center">RECOMENDA.AI</h2>
 
   <p align="center">
-  Project Description!
+  Modelo inteligente de recomendação de conteúdo.
     <br />
     <br />
     <a href="#"><strong>Explore the source code</strong></a>
