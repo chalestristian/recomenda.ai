@@ -1,16 +1,30 @@
-# This is a sample Python script.
+import dataset
+from sklearn.neighbors import NearestNeighbors
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+title_input = input("TITLE: ")
+quantity = input("QUANTITY: ")
+quantity_input = int(quantity)
 
+df = dataset.import_data()
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+near = NearestNeighbors(metric='cosine', algorithm='brute')
+near.fit(df.values)
+distances, indices = near.kneighbors(df.values, n_neighbors=quantity_input)
 
+def recommend_movie_by_item(title):
+    index_user_likes = df.index.tolist().index(title)
+    sim_movies = indices[index_user_likes].tolist()
+    movie_distances = distances[index_user_likes].tolist()
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+    print('Similar Movies to ' + str(title) + ':\n')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    j = 1
+
+    for i, distance in zip(sim_movies, movie_distances):
+        print(str(j) + ': ' + str(df.index[i]) + ', the distance with ' + str(title) + ': ' + str(distance))
+        j = j + 1
+
+    print('\n')
+
+recommend_movie_by_item(title_input)
+
