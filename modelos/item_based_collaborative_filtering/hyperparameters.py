@@ -1,7 +1,7 @@
 # Hyperparameters
 
 def n_neighbors():
-    print('N_NEIGHBORS(int): from 2 up to the list length. (default: 3)')
+    print('N_NEIGHBORS(int): from 3 up to the list length. (default: 3 - recommended to input just odd numbers)')
     quantity = input("n_neighbors: ")
     n_neighbors_input = int(quantity)
 
