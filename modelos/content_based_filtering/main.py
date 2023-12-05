@@ -32,6 +32,7 @@ def get_title_year_from_index(index):
 def get_index_from_title(title):
     return movies[movies.title == title].index.values[0]
 
+
 print('============================================================================\n')
 
 
@@ -41,7 +42,7 @@ def contents_based_recommender(movie_user_likes, how_many):
     similar_movies = list(
         filter(lambda x: x[0] != int(movie_index), sorted(movie_list, key=lambda x: x[1], reverse=True)))
     print("MOVIES SIMILAR TO [ " + str(movie_user_likes) + " ] - "
-          " | metric: " + str(metric) +
+                                                           " | metric: " + str(metric) +
           " | stop_word: " + str(stop) +
           " | quantity: " + str(quantity) +
           "\n"
