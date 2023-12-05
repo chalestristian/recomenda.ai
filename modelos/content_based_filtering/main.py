@@ -2,11 +2,15 @@ import dataset
 import hyperparameters
 
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import linear_kernel, cosine_similarity, pairwise_distances
+from sklearn.metrics.pairwise import linear_kernel, cosine_similarity
 
 movies = dataset.import_data()
 stop = hyperparameters.stop_words()
 metric = hyperparameters.metric()
+quantity = hyperparameters.how_many()
+
+print('\n============================================================================\n')
+title_input = input("MOVIE TITLE (str): ")
 
 if stop == 'None':
     tfidf_vector = TfidfVectorizer(stop_words=None)
@@ -38,11 +42,13 @@ def contents_based_recommender(movie_user_likes, how_many):
         filter(lambda x: x[0] != int(movie_index), sorted(movie_list, key=lambda x: x[1], reverse=True)))
     print("MOVIES SIMILAR TO [ " + str(movie_user_likes) + " ] - "
           " | metric: " + str(metric) +
-          " | stop_word: " + str(stop) + " \n"
+          " | stop_word: " + str(stop) +
+          " | quantity: " + str(quantity) +
+          "\n"
           )
 
     for i, s in similar_movies[:how_many]:
         print(get_title_year_from_index(i))
 
 
-contents_based_recommender('Toy Story', 10)
+contents_based_recommender(title_input, quantity)
