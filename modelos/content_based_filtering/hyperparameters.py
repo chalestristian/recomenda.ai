@@ -1,36 +1,26 @@
 # Hyperparameters
 
-def n_neighbors():
-    print('N_NEIGHBORS(int): from 3 up to the list length. (default: 3 [just odd numbers, rounding up])')
-    quantity = input("n_neighbors: ")
-    n_neighbors_input = int(quantity)
+def stop_words():
+    print('STOPWORDS(str): english, none | (default: english)')
+    stop = input("stopwords: ").lower()
 
     # VALIDATION:
-    if n_neighbors_input < 2:
-        n_neighbors_input = 3
 
-    if n_neighbors_input % 2 == 0:
-        n_neighbors_input += 1
+    if stop != 'none' and stop != 'english':
+        stop = 'english'
 
-    return n_neighbors_input
+    if stop == 'none':
+        stop = 'None'
+
+    return stop
 
 
 def metric():
-    print('METRIC(str): cosine | euclidean | manhattan. (default: cosine)')
+    print('METRIC(str): linear_kernel | cosine_similarity | euclidean | (default: linear_kernel)')
     metric_input = input("metric: ").lower()
 
     # VALIDATION:
-    if metric_input != "euclidean" and metric_input != "manhattan":
-        metric_input = "cosine"
+    if metric_input != "linear_kernel" and metric_input != "cosine_similarity":
+        metric_input = "linear_kernel"
 
     return metric_input
-
-
-def algorithm():
-    print('ALGORITHM(str): brute | ball_tree | kd_tree | auto. (default: brute)')
-    algorithm_input = input("algorithm: ").lower()
-
-    if algorithm_input != "ball_tree" and algorithm_input != "kd_tree" and algorithm_input != "auto":
-        algorithm_input = "brute"
-
-    return algorithm_input
