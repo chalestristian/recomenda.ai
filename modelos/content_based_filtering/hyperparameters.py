@@ -5,7 +5,6 @@ def stop_words():
     stop = input("stopwords: ").lower()
 
     # VALIDATION:
-
     if stop != 'none' and stop != 'english':
         stop = 'english'
 
@@ -27,7 +26,7 @@ def metric():
 
 
 def how_many():
-    print('RECOMENDATION QUANTITY(int): from 3 up to the list length. (default: 5)')
+    print('RECOMMENDATION QUANTITY(int): from 3 up to the list length. (default: 5)')
     quantity = input("quantity: ")
     value = int(quantity)
 
