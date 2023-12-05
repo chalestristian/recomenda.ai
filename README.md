@@ -56,7 +56,10 @@
   <b>Considerações:</b>
 
   * A recomendação deve ocorrer de duas formas. 
-    * [ ] A primeira deve ser uma recomendação baseada no histórico do usuário.
+    * [x] A primeira deve ser uma recomendação baseada no histórico do usuário.
+
+      - [item_based_collaborative_filtering)](https://github.com/chalestristian/recomenda.ai/tree/main/modelos/item_based_collaborative_filtering)
+
     * [ ] A segunda deve ser uma recomendação baseada no perfil pessoal do usuário.
 
   <br/>
