@@ -10,7 +10,8 @@ metric = hyperparameters.metric()
 quantity = hyperparameters.how_many()
 
 print('\n============================================================================\n')
-title_input = input("MOVIE TITLE (str): ")
+titles_input = input("MOVIE TITLES (comma-separated): ")
+titles_list = [title.strip() for title in titles_input.split(',')]
 
 if stop == 'None':
     tfidf_vector = TfidfVectorizer(stop_words=None)
@@ -33,23 +34,24 @@ def get_index_from_title(title):
     return movies[movies.title == title].index.values[0]
 
 
-print('============================================================================\n')
-
-
 def contents_based_recommender(movie_user_likes, how_many):
-    movie_index = get_index_from_title(movie_user_likes)
-    movie_list = list(enumerate(sim_matrix[int(movie_index)]))
-    similar_movies = list(
-        filter(lambda x: x[0] != int(movie_index), sorted(movie_list, key=lambda x: x[1], reverse=True)))
-    print("MOVIES SIMILAR TO [ " + str(movie_user_likes) + " ] - "
-                                                           " | metric: " + str(metric) +
-          " | stop_word: " + str(stop) +
-          " | quantity: " + str(quantity) +
-          "\n"
-          )
+    for title_input in movie_user_likes:
+        movie_index = get_index_from_title(title_input)
+        movie_list = list(enumerate(sim_matrix[int(movie_index)]))
+        similar_movies = list(
+            filter(lambda x: x[0] != int(movie_index), sorted(movie_list, key=lambda x: x[1], reverse=True)))
+        reference_genre = movies.loc[movies.index == int(movie_index), 'genres'].values[0]
+        print("\nMOVIES SIMILAR TO " + str(title_input) + " [" + str(reference_genre) + "] ("
+              "metric: " + str(metric) +
+              " - stop_word: " + str(stop) +
+              " - quantity: " + str(how_many) +
+              ")\n"
+              )
 
-    for i, s in similar_movies[:how_many]:
-        print(get_title_year_from_index(i))
+        for i, s in similar_movies[:how_many]:
+            similar_title = get_title_year_from_index(i)
+            similar_genre = movies.loc[movies.index == i, 'genres'].values[0]
+            print(f"{similar_title} [{similar_genre}]")
 
 
-contents_based_recommender(title_input, quantity)
+contents_based_recommender(titles_list, quantity)
