@@ -10,7 +10,7 @@ metric = hyperparameters.metric()
 quantity = hyperparameters.how_many()
 
 print('\n============================================================================\n')
-titles_input = input("MOVIE TITLES (comma-separated): ")
+titles_input = input("MOVIES TITLES (if more than one, separate with a comma): ")
 titles_list = [title.strip() for title in titles_input.split(',')]
 
 if stop == 'None':
