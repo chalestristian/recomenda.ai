@@ -74,9 +74,10 @@
   * [x] Sua equipe deverá fornecer insigths relevantes sobre a base de dados:
     * Estes insights também serão utilizados pela Netflix para melhorar seu processo de Engenharia de Dados. 
     * Para seu time, os insights serão os guias no desenho dos modelos de recomendação.
-  * [ ] Deverão ser criados pelo menos 2 modelos com abordagens diferentes.
-    * [ ] MODELO X
-    * [ ] MODELO Y
+  * [x] Deverão ser criados pelo menos 2 modelos com abordagens diferentes.
+    * [x] [item_based_collaborative_filtering](/modelos/item_based_collaborative_filtering/)
+    * [x] [content_based_filtering](/modelos/content_based_filtering/)
+
   * [ ] Todas as decisões de modelagem, definição de hyper parametros e etc devem ser documentadas e justificadas do porque da utilização.
   * [ ] Deverá ser apresentado relatório completo do desempenho dos modelos treinados, considerando métricas relevantes para a análise destes desempenhos.
   * [ ] A equipe deverá criar um pipeline teórico de deploy completo do projeto em alguma plataforma de núvem (ex: Google Cloud Platform, AWS, Microsoft Azure).
