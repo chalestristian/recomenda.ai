@@ -4,10 +4,25 @@ from content_based_filtering.main import main as content_based_main
 from item_based_collaborative_filtering.main import main as item_based_main
 from content_based_filtering.validator import hyperparameters as content_hp
 from item_based_collaborative_filtering.validator import hyperparameters as item_hp
+from flask_swagger_ui import get_swaggerui_blueprint
 
 app = Flask(__name__)
 api = Api(app, version='1.0', title='recomenda.ai', description='API For movies recommendation')
 namespace = api.namespace('movies_recommendation', description='Namespace with movie recommendation models based on Item and Content')
+
+
+SWAGGER_URL = '/api/docs'  # URL para a página Swagger-UI
+API_URL = '/swagger.json'  # URL para o arquivo Swagger.json
+
+swaggerui_blueprint = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        'app_name': "recomenda.ai"
+    }
+)
+
+app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 
 
 @namespace.route('/content_based_filtering')
@@ -69,4 +84,4 @@ class ItemBasedCollaborativeFiltering(Resource):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=False)

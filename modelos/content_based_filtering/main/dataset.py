@@ -3,7 +3,7 @@ import numpy as np
 
 
 def import_data():
-    movies = '../../dataset/movies.csv'
+    movies = '/app/content_based_filtering/dataset/movies.csv'
     movies = pd.read_csv(movies)
 
     def cut_title(title):

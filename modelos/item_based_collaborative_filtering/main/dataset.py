@@ -20,9 +20,10 @@ def cut_year(title):
     else:
         return np.nan
 
+
 def import_data():
-    ratings = '../../dataset/ratings.csv'
-    movies = '../../dataset/movies.csv'
+    ratings = '/app/content_based_filtering/dataset/ratings.csv'
+    movies = '/app/item_based_collaborative_filtering/dataset/movies.csv'
 
     ratings = pd.read_csv(ratings)
     movies = pd.read_csv(movies)
@@ -43,7 +44,7 @@ def import_data():
 
 
 def import_movies():
-    movies = '../../dataset/movies.csv'
+    movies = '/app/item_based_collaborative_filtering/dataset/movies.csv'
     movies = pd.read_csv(movies)
 
     movies.rename(columns={'title': 'title_year'}, inplace=True)
