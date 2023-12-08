@@ -123,7 +123,7 @@
 
     - **Padronização na nomenclatura dos gêneros:**
 
-        Os filmes com gêneros relacionados a Ficção Científica (Science Fiction) e Filme Negro (Noir) são os únicos gêneros abreviados com o simbolo - na base:
+        Os gêneros relacionados a Ficção Científica (Science Fiction) e Filme Negro (Noir) são os únicos abreviados com o simbolo - na base:
         ````
         Sci-Fi | Film-Noir
         ````
@@ -133,7 +133,7 @@
         ````
     - **Gêneros ausentes:**
 
-        Quando um filme não possui o gênero descrito, na base a coluna gênero recebe o termo:
+        Quando um filme não possui o gênero especificado, na base a coluna gênero recebe o termo:
         ````
         (no genres listed)
         ````
