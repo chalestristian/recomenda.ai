@@ -25,7 +25,7 @@
 
   [Pipeline](#pipeline)
 
-  [Artefatos](#artefatos)
+  [Relatorio](#artefatos)
 
   [Instalar & Executar](#instalar)
 
@@ -55,7 +55,7 @@
 
   <br/>  
   <br/> 
-  
+
   <b>Considerações:</b>
 
   * A recomendação deve ocorrer de duas formas. 
@@ -82,7 +82,7 @@
     * [x] [content_based_filtering](/modelos/content_based_filtering/)
 
   * [x] Todas as decisões de modelagem, definição de hyper parametros e etc devem ser documentadas e justificadas do porque da utilização.
-  * [ ] Deverá ser apresentado relatório completo do desempenho dos modelos treinados, considerando métricas relevantes para a análise destes desempenhos.
+  * [x] Deverá ser apresentado relatório completo do desempenho dos modelos treinados, considerando métricas relevantes para a análise destes desempenhos.
   * [ ] A equipe deverá criar um pipeline teórico de deploy completo do projeto em alguma plataforma de núvem (ex: Google Cloud Platform, AWS, Microsoft Azure).
   * [x] O Projeto deverá ser publicado em repositório GIT.
   <br/>
@@ -284,15 +284,10 @@ Cada um dos modelos foi configurado com hiperparâmetros específicos, dando ao 
   <br/>
 <div/>
 
-# Artefatos
+# Relatório
 <div id="artefatos">
 
-  * Doc sobre os insights.
-  * Doc sobre os design.
-  * Doc sobre decisões de modelagem, definição de hyper parametros e etc.
-  * Doc sobre desempenho dos modelos treinados, considerando métricas relevantes para a análise.
-  * Doc sobre pipeline teórico de deploy.
-
+[Relatório de desempenho dos modelos](https://docs.google.com/document/d/1-QmSaHaDGDmoHfN2vV1antKq7YPRROpmvfZnWiRDsGA/edit?usp=sharing)
   <br/>
 </div>
 
