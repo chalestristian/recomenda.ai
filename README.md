@@ -31,7 +31,7 @@
 
   [Desenvolvido Com](#desenvolvidocom)
 
-  [Desenvolvido Por](#desenvolvidopor)
+  [Considerações Finais](#consideracoesfinais)
 
   [Fontes](#fontes)
 
@@ -207,7 +207,7 @@ Cada um dos modelos foi configurado com hiperparâmetros específicos, dando ao 
     - *Especificações:*
       - Aceita valores a partir de 3 até o tamanho da lista (valor padrão: 9).
       - Aceita apenas valores ímpares para evitar empates nas votações.
-      - Caso inserido valor par, o arredondamento será realizado para baixo (-1).
+      - Caso inserido valores pares, o arredondamento será realizado para baixo (-1).
     
     - *Definições:*
       - Define o número de vizinhos considerados durante a recomendação. O algoritmo k-NN recomenda itens com base na votação dos vizinhos mais próximos. O número de vizinhos afeta a influência de pontos de dados próximos na recomendação. Valores mais altos podem levar a recomendações mais conservadoras, enquanto valores mais baixos podem ser mais sensíveis a variações nos dados.
@@ -365,7 +365,7 @@ Isso encerrará a execução da aplicação e removerá os contêineres.
 </div>
 
 # Considerações finais
-<div id="desenvolvidopor">
+<div id="consideracoesfinais">
 
 ### Trabalho desenvolvido por: Thales Cristian e Neuber Tavares
 
