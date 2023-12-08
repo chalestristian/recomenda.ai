@@ -72,7 +72,7 @@
   <b>Exigências:</b>
 
   * [x] O desenvolvimento deve ser feito em Python (versão 3.8 ou superior)
-  * [ ] O ambiente de desenvolvimento deve ser capaz de ser reproduzido a qualquer momento.
+  * [x] O ambiente de desenvolvimento deve ser capaz de ser reproduzido a qualquer momento.
   * [x] O dataset será fornecido pela Netflix.
   * [x] Sua equipe deverá fornecer insigths relevantes sobre a base de dados:
     * Estes insights também serão utilizados pela Netflix para melhorar seu processo de Engenharia de Dados. 
@@ -294,9 +294,60 @@ Cada um dos modelos foi configurado com hiperparâmetros específicos, dando ao 
 # Instalar & Executar
 <div id="instalar">
 
-  * Falar sobre a utilização/configuração do docker e como rodar o projeto local.
+### Guia de Execução Local com Docker Compose
 
-  </br>
+Este guia fornece instruções passo a passo sobre como executar a aplicação localmente usando o Docker Compose.
+
+### Pré-requisitos
+
+Certifique-se de ter os seguintes pré-requisitos instalados em sua máquina:
+
+- [Docker](https://www.docker.com/get-started)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+### Passos para Execução Local
+
+#### 1. Clone o Repositório
+
+```
+git clone https://github.com/chalestristian/recomenda.ai.git
+```
+
+```
+cd recomenda.ai/modelos
+```
+
+#### 2. Construa e Inicie os Contêineres
+
+Execute o seguinte comando para construir e iniciar os contêineres da aplicação (certifique-se de que o Docker Desktop esteja aberto):
+
+```
+docker compose up --build
+```
+
+#### 3. Acesse a Aplicação
+
+Uma vez que os contêineres estejam em execução, a aplicação deve estar acessível em:
+
+- [http://localhost:5000](http://localhost:5000)
+
+#### 4. Parar e Limpar
+
+Para parar os contêineres e limpar os recursos, execute:
+
+```
+docker compose down
+```
+
+Isso encerrará a execução da aplicação e removerá os contêineres.
+
+#### Problemas Comuns:
+
+- **Porta Ocupada:** Se a porta 5000 já estiver em uso, ajuste a porta no arquivo `docker-compose.yml` ou encerre o processo que está usando a porta.
+
+- **Erros na Compilação:** Certifique-se de que todas as dependências estejam instaladas e que o ambiente esteja configurado corretamente.
+
+</br>
 
 </div>
 
