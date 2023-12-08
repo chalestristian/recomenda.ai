@@ -10,12 +10,12 @@
     <a href="/modelos/"><strong>Explorar source code</strong></a>
     <br/>
     <br/>
-    <span>Bem-vindo ao <b>recomenda.ai</b><span>
+    <span>Bem-vindo ao **recomenda.ai**<span>
     <br/>
   </p>
   
   <details>      
-  <summary><b>Sumário</b></summary>
+  <summary>**Sumário**</summary>
 
   [Sobre o Projeto](#sobre)
 
@@ -53,7 +53,7 @@
   </span> 
 
   <br/>  
-  <b>Considerações:</b>
+  **Considerações:**
 
   * A recomendação deve ocorrer de duas formas. 
     * [x] A primeira deve ser uma recomendação baseada no histórico do usuário.
@@ -66,7 +66,7 @@
 
 
   <br/>
-  <b>Exigências:</b>
+  **Exigências:**
 
   * [x] O desenvolvimento deve ser feito em Python (versão 3.8 ou superior)
   * [ ] O ambiente de desenvolvimento deve ser capaz de ser reproduzido a qualquer momento.
@@ -78,7 +78,7 @@
     * [x] [item_based_collaborative_filtering](/modelos/item_based_collaborative_filtering/)
     * [x] [content_based_filtering](/modelos/content_based_filtering/)
 
-  * [ ] Todas as decisões de modelagem, definição de hyper parametros e etc devem ser documentadas e justificadas do porque da utilização.
+  * [x] Todas as decisões de modelagem, definição de hyper parametros e etc devem ser documentadas e justificadas do porque da utilização.
   * [ ] Deverá ser apresentado relatório completo do desempenho dos modelos treinados, considerando métricas relevantes para a análise destes desempenhos.
   * [ ] A equipe deverá criar um pipeline teórico de deploy completo do projeto em alguma plataforma de núvem (ex: Google Cloud Platform, AWS, Microsoft Azure).
   * [x] O Projeto deverá ser publicado em repositório GIT.
@@ -102,7 +102,7 @@
 
   Sugestões de melhoria detectados durante a preparção dos dados:
   * Movies:
-    - <b>Titulo e Ano na mesma coluna:</b>
+    - **Titulo e Ano na mesma coluna:**
         
         No dataset, o titulo da obra e o ano estão na mesma coluna, separadas por parênteses como por exemplo:
         ````
@@ -118,7 +118,7 @@
 
         A separação desses dados se torna ainda mais crucial, evitando que títulos sejam deformados caso a única validação nos pré processamentos seja ignorar dados entre parenteses.
 
-    - <b>Padronização na nomenclatura dos gêneros:</b>
+    - **Padronização na nomenclatura dos gêneros:**
 
         Os filmes com gêneros relacionados a Ficção Científica (Science Fiction) e Filme Negro (Noir) são os únicos gêneros abreviados com o simbolo - na base:
         ````
@@ -128,7 +128,7 @@
         ````
         SciFi | Noir
         ````
-    - <b>Gêneros ausentes:</b>
+    - **Gêneros ausentes:**
 
         Quando um filme não possúi o gênero descrito, na base a coluna gênero recebe o termo:
         ````
@@ -136,7 +136,7 @@
         ````
         O ideal, seria deixar a coluna nula. A validação por nulo é bem mais simples e é uma rotina padrão na análise de dados, facilitando a validação nos serviços que consomem esse dado, e também o pré-processamento descartando a necessidade de procurar por um termo específico.
 
-    - <b>Ausência de dados gerais:</b>
+    - **Ausência de dados gerais:**
       Em sistemas de streaming, comummente os usuários podem configurar/tender (a) certas preferências que podem incluir:
       
         - Classificação indicativa
@@ -155,8 +155,119 @@
 # Design
 <div id="design">
 
-  * Falar sobre decisões de modelagem, definição de hyper parametros e etc.
-  * Falar sobre os modelos escolhidos, ambos X e Y, e justificar o porque.
+### Modelos:
+
+No cenário de recomendação de filmes, com base nos conjuntos de dados fornecidos que incluem títulos, gêneros e avaliações dos usuários, várias abordagens foram consideradas, e optamos pelos modelos:
+
+[Filtragem Colaborativa Baseada em Itens(Item-Based Collaborative Filtering)](/modelos/item_based_collaborative_filtering/)
+
+[Filtragem Baseada em Conteúdo(Content-Based Filtering)](/modelos/content_based_filtering/)
+
+Ambos os modelos possuem vantagens específicas baseadas no cenário de uso, e esses pontos foram considerados para a tomada de decisão:
+
+**Filtragem Colaborativa Baseada em Itens:**
+
+   - **Vantagens:**
+     - Eficaz em situações onde as preferências do usuário são dinâmicas ou podem mudar com o tempo. 
+     - Pode lidar com a popularidade e dinâmica de itens novos, pois se baseia nas interações entre usuários e itens.
+     - Não requer informações detalhadas sobre os itens.
+
+   - **Cenários de uso:**
+     - Quando há um grande conjunto de dados de interações usuário-item.
+     - Quando as preferências dos usuários são influenciadas pelas escolhas de usuários semelhantes.
+
+**Filtragem Baseada em Conteúdo:**
+
+   - **Vantagens:**
+     - Eficaz quando há informações detalhadas sobre os itens.
+     - Pode lidar bem com a novidade, sugerindo itens com base em características intrínsecas.
+     - Pode ser mais explicativo, pois recomenda com base em características específicas dos itens.
+
+   - **Cenários de uso:**
+     - Quando há informações detalhadas sobre os itens, como descrições, gêneros, diretores, etc.
+     - Quando as preferências dos usuários estão fortemente ligadas às características dos itens.
+
+O detalhamento acima resume o motivo da nossa escolha nos modelos apresentados. Com a filtragem colaborativa baseada em itens consideramos as avaliações, são dados que mudam com o tempo, mudam conforme a interação dos usuários e as preferencias são influenciadas pela escolha de usuários semelhantes. Já a filtragem baseada em conteúdo exige informações complementares como os gêneros dos filmes, fazendo assim a recomendação com base na caracteristica especifica do item, caracteristica essas que o usuário já demonstrou interesse.
+
+
+### Hiperparâmetros:
+
+Buscando uma abordagem mais orientada ao cliente, optamos por disponibilizar uma ampla variedade de possibilidades e combinações de hiperparâmetros. Essa flexibilidade tem como objetivo atender às diversas necessidades do negócio, proporcionando uma experiência mais rica e adaptada às preferências individuais ou coletivas no cenário atual. Reconhecemos que a base de dados está sujeita a mudanças e crescimento, e novas regras de negócios podem surgir. A intenção por trás dessa escolha é dotar o sistema de recomendações da máxima flexibilidade possível, permitindo uma resposta ágil a essas mudanças em prazos reduzidos e com o mínimo esforço necessário.
+
+Cada um dos modelos foi configurado com hiperparâmetros específicos, dando ao cliente a liberdade de escolher aquele que melhor se adequa às suas necessidades. Contudo, estabelecemos valores padrões para casos em que a especificação não estiver presente. Essa abordagem visa simplificar o processo de configuração, garantindo que o sistema continue operando de maneira eficiente mesmo quando uma escolha personalizada não for feita.
+
+
+### Filtragem Colaborativa Baseada em Itens:
+
+  - **n_neighbors:**
+    
+    - *Especificações:*
+      - Aceita valores a partir de 3 até o tamanho da lista (valor padrão: 9).
+      - Aceita apenas valores impares para evitar empates nas votações.
+      - Caso inserido valor par, o arredondamento será realizado para baixo (-1).
+    
+    - *Definições:*
+      - Define o número de vizinhos considerados durante a recomendação. O algoritmo k-NN recomenda itens com base na votação dos vizinhos mais próximos. O número de vizinhos afeta a influência de pontos de dados próximos na recomendação. Valores mais altos podem levar a recomendações mais conservadoras, enquanto valores mais baixos podem ser mais sensíveis a variações nos dados.
+
+  - **metric:**
+
+    - *Especificações:*
+      - Aceita como valores: cosine, euclidean, manhattan (valor padrão: cosine).
+
+    - *Definições:*
+      - Define a métrica de distância utilizada para calcular a distância entre pontos no espaço. As opções são:
+        
+        - *cosine*: Mede o cosseno do ângulo entre dois vetores no espaço. No contexto de recomendação, os vetores representam os perfis de avaliação dos usuários. Dois itens ou usuários com avaliações semelhantes, mesmo que em escalas diferentes, terão uma alta similaridade de cosseno.
+
+        - *euclidean*:  A distância euclidiana é a distância geométrica direta entre dois pontos em um espaço. No contexto de recomendação, representa a dissimilaridade entre avaliações de usuários ou itens. Avaliações mais distantes em termos de magnitude terão uma distância euclidiana maior.
+
+        - *manhattan*: A distância de Manhattan é a soma das diferenças absolutas entre as coordenadas dos pontos. Em um contexto de recomendação, é uma métrica de dissimilaridade entre avaliações. É menos sensível a diferenças em uma dimensão específica em comparação com a euclidiana.
+
+  - **algorithm:**
+
+    - *Especificações:*
+      - Aceita como valores:  brute, ball_tree, kd_tree, auto (valor padrão: brute).
+    
+    - *Definições:*
+      - Define o algoritmo utilizado para calcular os vizinhos mais próximos. As opções são:
+
+        - *brute*: Calcula diretamente a distância entre todos os pontos no espaço de características, identificando os vizinhos mais próximos. É eficaz para conjuntos de dados de pequena a média escala, mas pode se tornar computacionalmente caro para grandes conjuntos de dados.
+        
+        - *ball_tree*: Cria uma estrutura de árvore para representar o espaço de características, organizando os pontos em regiões esféricas. É eficiente para conjuntos de dados de alta dimensionalidade, mas pode exigir mais recursos de memória durante a construção da árvore.
+
+        - *kd_tree*: Organiza os pontos em uma estrutura de árvore binária, dividindo recursivamente o espaço em regiões k-dimensionais.
+          É eficiente para conjuntos de dados de baixa a média dimensionalidade, mas pode não ser ideal para conjuntos de dados de alta dimensionalidade.
+        - *auto*: Organiza os pontos em uma estrutura de árvore binária, dividindo recursivamente o espaço em regiões k-dimensionais. É eficiente para conjuntos de dados de baixa a média dimensionalidade, mas pode não ser ideal para conjuntos de dados de alta dimensionalidade.
+
+### Filtragem Baseada em Conteúdo:
+
+  - **stopwords**
+  
+    - *Especificações:*
+      - Aceita como valores:  english, none (valor padrão: english).
+    
+    - *Definições:*
+      - Controla se e quais stopwords (palavras irrelevantes, como "and", "the", etc.) devem ser removidas durante o processamento de texto. A escolha entre "none" e "english" determina se stopwords são removidas ou não. No contexto de gêneros de filmes, palavras como "and", "the", etc., podem não ser informativas para distinguir diferentes gêneros.
+
+  - **metric**
+
+    - *Especificações:*
+      - Aceita como valores:  linear_kernel, cosine_similarity (valor padrão: linear_kernel).
+
+    - *Definições:*
+      - Controla a métrica utilizada para calcular a similaridade entre itens. As opções são:
+
+        - *linear_kernel*: É mais influenciado pela magnitude dos vetores de características, ou seja, gêneros com uma maior presença relativa podem ter um impacto mais significativo na similaridade.
+
+        - *cosine_similarity*: É mais focado na orientação e é insensível à magnitude, ou seja, a presença absoluta de um gênero não influenciará tanto quanto a direção geral dos vetores de características.
+      
+  - **how_many**
+
+    - *Especificações:*
+      - Aceita valores a partir de 3 até o tamanho da lista (valor padrão: 5).
+
+    - *Definições:*
+      - Define a quantidade de recomendações a serem geradas. A Quantidade de recomendações pode afetar a experiência do usuário. Valores muito baixos podem não fornecer diversidade, enquanto valores muito altos podem sobrecarregar o usuário.
 
   <br/>
 </div>
