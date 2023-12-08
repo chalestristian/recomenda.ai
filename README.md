@@ -71,7 +71,7 @@
   * [x] O desenvolvimento deve ser feito em Python (versão 3.8 ou superior)
   * [ ] O ambiente de desenvolvimento deve ser capaz de ser reproduzido a qualquer momento.
   * [x] O dataset será fornecido pela Netflix.
-  * [ ] Sua equipe deverá fornecer insigths relevantes sobre a base de dados:
+  * [x] Sua equipe deverá fornecer insigths relevantes sobre a base de dados:
     * Estes insights também serão utilizados pela Netflix para melhorar seu processo de Engenharia de Dados. 
     * Para seu time, os insights serão os guias no desenho dos modelos de recomendação.
   * [ ] Deverão ser criados pelo menos 2 modelos com abordagens diferentes.
@@ -146,7 +146,7 @@
       Essas informações inrrequiceriam a análise de dados e resultaria em recomendações mais acuradas e precisas, porém, são informações que não estão disponíveis nas bases fornecidas.
     
     Não foram identificados pontos de melhorias significantes na base ratings.
-     
+
   <br/>
 </div>
 
