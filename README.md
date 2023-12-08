@@ -50,9 +50,12 @@
   <span>
     Sua empresa foi contrada pela Netflix para construir o novo sistema de recomendação da plataforma de streaming mais famosa do mundo.
     A área de negócio responsável na Netflix fez algumas observações na reunião de Kick-Off que deverão ser consideradas durante o processo:
+
   </span> 
 
+
   <br/>  
+
   <b>Considerações:</b>
 
   * A recomendação deve ocorrer de duas formas. 
