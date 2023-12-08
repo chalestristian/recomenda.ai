@@ -1,16 +1,16 @@
 # Hyperparameters
 
 def n_neighbors():
-    print('N_NEIGHBORS(int): from 3 up to the list length. (default: 3 [just odd numbers, rounding up])')
+    print('N_NEIGHBORS(int): from 3 up to the list length. (default: 9 [just odd numbers, rounding down])')
     quantity = input("n_neighbors: ")
     n_neighbors_input = int(quantity)
 
     # VALIDATION:
     if n_neighbors_input < 2:
-        n_neighbors_input = 3
+        n_neighbors_input = 9
 
     if n_neighbors_input % 2 == 0:
-        n_neighbors_input += 1
+        n_neighbors_input -= 1
 
     return n_neighbors_input
 
