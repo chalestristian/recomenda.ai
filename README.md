@@ -39,7 +39,7 @@
   <br/>
 </div>
 
-# Sobre o Projeto
+# Sobre o projeto
 <div align="center" id="sobre">
 
 ![Product Name ScreenShot][product-screenshot] 
@@ -83,7 +83,7 @@
 
   * [x] Todas as decisões de modelagem, definição de hyper parametros e etc devem ser documentadas e justificadas do porque da utilização.
   * [x] Deverá ser apresentado relatório completo do desempenho dos modelos treinados, considerando métricas relevantes para a análise destes desempenhos.
-  * [ ] A equipe deverá criar um pipeline teórico de deploy completo do projeto em alguma plataforma de núvem (ex: Google Cloud Platform, AWS, Microsoft Azure).
+  * [x] A equipe deverá criar um pipeline teórico de deploy completo do projeto em alguma plataforma de núvem (ex: Google Cloud Platform, AWS, Microsoft Azure).
   * [x] O Projeto deverá ser publicado em repositório GIT.
   <br/>
 </div>
@@ -278,7 +278,11 @@ Cada um dos modelos foi configurado com hiperparâmetros específicos, dando ao 
 # Pipeline
 <div id="pipeline">
 
-  * Explicar e exemplificar o pipeline.
+Pipeline teórico de deploy:
+
+![Product Deploy][product-deploy] 
+
+Em resumo, esse modelo de deploy visa otimizar a entrega contínua, promover a automação em todas as etapas e garantir uma infraestrutura escalável e resiliente para os serviços de recomendações. Adotando essa abordagem, as equipes de desenvolvimento podem garantir uma implementação confiável, rápida e eficiente.
 
 
   <br/>
@@ -352,41 +356,43 @@ Isso encerrará a execução da aplicação e removerá os contêineres.
 </div>
 
 
-# Desenvolvido Com
+# Desenvolvido com
 <div id="desenvolvidocom">
-
-  Listar as principais linguagens e frameworks utilizados no desenvolvimento.
 
   [![Python][Python]][Python-url]
 
   <br/>
 </div>
 
-# Considerações Finais
+# Considerações finais
 <div id="desenvolvidopor">
 
-  Trabalho desenvolvido por: Thales Cristian & Neuber Tavares
-</br>
-  <span>
-  Projeto referente a Unidade Curricular(UC) de Inteligência Artificial (UNIBH-2023/2), proposto pelo professor Marco Calijorne como avaliação final.
-  </span>
+### Trabalho desenvolvido por: Thales Cristian e Neuber Tavares
 
+É com grande satisfação que concluímos este projeto de Modelos de Recomendações, desenvolvido com empenho e dedicação ao longo da Unidade Curricular do curso de Ciências Da Computação - UNIBH.
 
-  <a href="https://www.linkedin.com/in/chalestristian/"><img src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555"></a>
-  <a href="mailto:thales.cristianeugenio@gmail.com?subject=Contact From Github"><img src="https://img.shields.io/badge/GMAIL-lightgrey?style=for-the-badge&logo=GMAIL&colorB=555"></a>
+Agradecemos ao professor Marco Calijorne por nos desafiar e orientar ao longo desse percurso, fornecendo insights valiosos e estimulando nossa busca pelo conhecimento.
   <br>
 </div>
 
 # Fontes
 <div id="fontes">
 
-  Fontes de pesquisas utilizados.
-  * [GitHub Pages](https://pages.github.com)
+  Fontes de pesquisas consultadas:
+
+  * [Build a Recommendation Engine With Collaborative Filtering](https://realpython.com/build-recommendation-engine-collaborative-filtering/#the-dataset)
+
+  * [Item-based Collaborative Filtering Recommendation Algorithms](https://www.researchgate.net/publication/2369002_Item-based_Collaborative_Filtering_Recommendation_Algorithms)
+
+  * [How to Build a Recommendation System in Python](https://365datascience.com/tutorials/how-to-build-recommendation-system-in-python/)
+
   <br/>
 </div>
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: readme_img/screenshot.png
+[product-deploy]: readme_img/deploy/pipeline-deploy.png
+
 [Python]: https://img.shields.io/badge/Python-000000?style=for-the-badge&logo=python&logoColor=white
 [Python-url]: https://www.python.org/
