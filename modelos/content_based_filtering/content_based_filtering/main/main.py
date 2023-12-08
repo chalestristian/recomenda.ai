@@ -1,4 +1,4 @@
-import dataset
+from content_based_filtering.main import dataset
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel, cosine_similarity
