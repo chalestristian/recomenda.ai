@@ -7,7 +7,7 @@
     <span>Modelo inteligente de recomendação de conteúdo.</span>
     <br/>
     <br/>
-    <a href="#"><strong>Explorar source code</strong></a>
+    <a href="/modelos/"><strong>Explorar source code</strong></a>
     <br/>
     <br/>
     <span>Bem-vindo ao <b>recomenda.ai</b><span>
@@ -58,9 +58,12 @@
   * A recomendação deve ocorrer de duas formas. 
     * [x] A primeira deve ser uma recomendação baseada no histórico do usuário.
 
-      - [item_based_collaborative_filtering](https://github.com/chalestristian/recomenda.ai/tree/main/modelos/item_based_collaborative_filtering)
+      - [item_based_collaborative_filtering](/modelos/item_based_collaborative_filtering/)
 
-    * [ ] A segunda deve ser uma recomendação baseada no perfil pessoal do usuário.
+    * [x] A segunda deve ser uma recomendação baseada no perfil pessoal do usuário.
+
+      - [content_based_filtering](/modelos/content_based_filtering/)
+
 
   <br/>
   <b>Exigências:</b>
@@ -84,15 +87,66 @@
 # Dataset
 <div id="dataset">
 
-  * Falar sobre onde está, a utilização no projeto.
+  O [dataset](/dataset/) fornecido pela Netflix contem informações relevantes e está dividido em:
+  - [movies](/dataset/movies.csv)
+  - [ratings](/dataset/ratings.csv)
+  
+  onde, movies contem informações relevantes sobre o filme sendo título e gênero, e ratings contendo informações referente a avaliações das obras.
+
+  Para além dos insights fornecidos abaixo, o dataset pode ser considerado coerente. Apesar de não ser tão completo e abrangente, podemos afirmar que os dados são precisos, consistentes, padronizado tendo como resultado pouco esforço necessário no pré-processamento dos dados.
 
   <br/>
 
   ### Insights
 
-  * Falar sobre os insights coletados, pontos positivos e negativos na organização dos dados.
-  * Falar sobre como os modelos se adaptão ao dataset e se foi um motivo motivador para escolha do modelo.
+  Sugestões de melhoria detectados durante a preparção dos dados:
+  * Movies:
+    - <b>Titulo e Ano na mesma coluna:</b>
+        
+        No dataset, o titulo da obra e o ano estão na mesma coluna, separadas por parênteses como por exemplo:
+        ````
+        Bushwhacked (1995)
+        ````
+        Separar o titulo e o ano em colunas especificas ajuda a manter a consistência da base, melhora o processo de preparação dos dados retirando a necessidade de tratar o campo titulo/ano, e pode também ajudar na performance dos demais serviços da companhia que consomem esse dado.
 
+        Considerando ainda que existem títulos onde há parênteses no nome, como por exemplo:
+
+        ````
+        Eat Drink Man Woman (Yin shi nan nu) (1994)
+        ````
+
+        A separação desses dados se torna ainda mais crucial, evitando que títulos sejam deformados caso a única validação nos pré processamentos seja ignorar dados entre parenteses.
+
+    - <b>Padronização na nomenclatura dos gêneros:</b>
+
+        Os filmes com gêneros relacionados a Ficção Científica (Science Fiction) e Filme Negro (Noir) são os únicos gêneros abreviados com o simbolo - na base:
+        ````
+        Sci-Fi | Film-Noir
+        ````
+        Por fugirem do padrão e com o objetivo de simplificar a análise e garantir consistência nos dados, a sugestão seria que as nomenclaturas fossem:
+        ````
+        SciFi | Noir
+        ````
+    - <b>Gêneros ausentes:</b>
+
+        Quando um filme não possúi o gênero descrito, na base a coluna gênero recebe o termo:
+        ````
+        (no genres listed)
+        ````
+        O ideal, seria deixar a coluna nula. A validação por nulo é bem mais simples e é uma rotina padrão na análise de dados, facilitando a validação nos serviços que consomem esse dado, e também o pré-processamento descartando a necessidade de procurar por um termo específico.
+
+    - <b>Ausência de dados gerais:</b>
+      Em sistemas de streaming, comummente os usuários podem configurar/tender (a) certas preferências que podem incluir:
+      
+        - Classificação indicativa
+        - Elenco
+        - Duração
+        - País de origem
+
+      Essas informações inrrequiceriam a análise de dados e resultaria em recomendações mais acuradas e precisas, porém, são informações que não estão disponíveis nas bases fornecidas.
+    
+    Não foram identificados pontos de melhorias significantes na base ratings.
+     
   <br/>
 </div>
 
@@ -147,10 +201,15 @@
   <br/>
 </div>
 
-# Desenvolvido Por
+# Considerações Finais
 <div id="desenvolvidopor">
 
-  Trabalho desenvolvido por: Thales Cristian
+  Trabalho desenvolvido por: Thales Cristian & Neuber Tavares
+</br>
+  <span>
+  Projeto referente a Unidade Curricular(UC) de Inteligência Artificial (UNIBH-2023/2), proposto pelo professor Marco Calijorne como avaliação final.
+  </span>
+
 
   <a href="https://www.linkedin.com/in/chalestristian/"><img src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555"></a>
   <a href="mailto:thales.cristianeugenio@gmail.com?subject=Contact From Github"><img src="https://img.shields.io/badge/GMAIL-lightgrey?style=for-the-badge&logo=GMAIL&colorB=555"></a>
