@@ -6,12 +6,11 @@ from content_based_filtering.validator import hyperparameters as content_hp
 from item_based_collaborative_filtering.validator import hyperparameters as item_hp
 
 app = Flask(__name__)
-api = Api(app, version='1.0', title='recomenda.ai', description='API For movies recommendation', doc='/')
-content_based_namespace = api.namespace('content_based_filtering', description='Endpoint responsible for making the recommendation based on ContentBasedFiltering model')
-item_based_collaborative_namespace = api.namespace('item_based_collaborative_namespace', description='Endpoint responsible for making the recommendation based on ItemBasedCollaborative model')
+api = Api(app, version='1.0', title='recomenda.ai', description='API For movies recommendation')
+namespace = api.namespace('movies_recommendation', description='Namespace with movie recommendation models based on Item and Content')
 
 
-@content_based_namespace.route('/movie_recomendation')
+@namespace.route('/content_based_filtering')
 class ContentBasedFiltering(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('stop_words', type=str, help='stopwords: english | none | (default: english)')
@@ -40,7 +39,7 @@ class ContentBasedFiltering(Resource):
         return {'recommendations': result}
 
 
-@item_based_collaborative_namespace.route('/movie_recomendation')
+@namespace.route('/item_based_collaborative_filtering')
 class ItemBasedCollaborativeFiltering(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('algorithm', type=str, help='algorithm: brute | ball_tree | kd_tree | auto. (default: brute)')
