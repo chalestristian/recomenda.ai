@@ -10,12 +10,12 @@
     <a href="/modelos/"><strong>Explorar source code</strong></a>
     <br/>
     <br/>
-    <span>Bem-vindo ao **recomenda.ai**<span>
+    <span>Bem-vindo ao <b>recomenda.ai</b><span>
     <br/>
   </p>
   
   <details>      
-  <summary>**Sumário**</summary>
+  <summary><b>Sumário</b></summary>
 
   [Sobre o Projeto](#sobre)
 
