@@ -48,7 +48,7 @@
 
 <div>
   <span>
-    Sua empresa foi contrada pela Netflix para construir o novo sistema de recomendação da plataforma de streaming mais famosa do mundo.
+    Sua empresa foi contratada pela Netflix para construir o novo sistema de recomendação da plataforma de streaming mais famosa do mundo.
     A área de negócio responsável na Netflix fez algumas observações na reunião de Kick-Off que deverão ser consideradas durante o processo:
   </span> 
 
@@ -74,16 +74,16 @@
   * [x] O desenvolvimento deve ser feito em Python (versão 3.8 ou superior)
   * [x] O ambiente de desenvolvimento deve ser capaz de ser reproduzido a qualquer momento.
   * [x] O dataset será fornecido pela Netflix.
-  * [x] Sua equipe deverá fornecer insigths relevantes sobre a base de dados:
+  * [x] Sua equipe deverá fornecer insights relevantes sobre a base de dados:
     * Estes insights também serão utilizados pela Netflix para melhorar seu processo de Engenharia de Dados. 
     * Para seu time, os insights serão os guias no desenho dos modelos de recomendação.
   * [x] Deverão ser criados pelo menos 2 modelos com abordagens diferentes.
     * [x] [item_based_collaborative_filtering](/modelos/item_based_collaborative_filtering/)
     * [x] [content_based_filtering](/modelos/content_based_filtering/)
 
-  * [x] Todas as decisões de modelagem, definição de hyper parametros e etc devem ser documentadas e justificadas do porque da utilização.
+  * [x] Todas as decisões de modelagem, definição de hiperparâmetros e etc devem ser documentadas e justificadas do porquê da utilização.
   * [x] Deverá ser apresentado relatório completo do desempenho dos modelos treinados, considerando métricas relevantes para a análise destes desempenhos.
-  * [x] A equipe deverá criar um pipeline teórico de deploy completo do projeto em alguma plataforma de núvem (ex: Google Cloud Platform, AWS, Microsoft Azure).
+  * [x] A equipe deverá criar um pipeline teórico de deploy completo do projeto em alguma plataforma de nuvem (ex: Google Cloud Platform, AWS, Microsoft Azure).
   * [x] O Projeto deverá ser publicado em repositório GIT.
   <br/>
 </div>
@@ -91,27 +91,27 @@
 # Dataset
 <div id="dataset">
 
-  O [dataset](/dataset/) fornecido pela Netflix contem informações relevantes e está dividido em:
+  O [dataset](/dataset/) fornecido pela Netflix contém informações relevantes e está dividido em:
   - [movies](/dataset/movies.csv)
   - [ratings](/dataset/ratings.csv)
   
-  onde, movies contem informações relevantes sobre o filme sendo título e gênero, e ratings contendo informações referente a avaliações das obras.
+  onde, movies contém informações relevantes sobre o filme sendo título e gênero, e ratings contendo informações referente as avaliações das obras.
 
-  Para além dos insights fornecidos abaixo, o dataset pode ser considerado coerente. Apesar de não ser tão completo e abrangente, podemos afirmar que os dados são precisos, consistentes, padronizado tendo como resultado pouco esforço necessário no pré-processamento dos dados.
+  Para além dos insights fornecidos abaixo, o dataset pode ser considerado coerente. Apesar de não ser tão completo e abrangente, podemos afirmar que os dados são precisos, consistentes, padronizados, tendo como resultado pouco esforço necessário no pré-processamento dos dados.
 
   <br/>
 
   ### Insights
 
-  Sugestões de melhoria detectados durante a preparção dos dados:
+  Sugestões de melhoria detectados durante a preparação dos dados:
   * Movies:
-    - **Titulo e Ano na mesma coluna:**
+    - **Título e Ano na mesma coluna:**
         
-        No dataset, o titulo da obra e o ano estão na mesma coluna, separadas por parênteses como por exemplo:
+        No dataset, o título da obra e o ano estão na mesma coluna, separadas por parênteses como por exemplo:
         ````
         Bushwhacked (1995)
         ````
-        Separar o titulo e o ano em colunas especificas ajuda a manter a consistência da base, melhora o processo de preparação dos dados retirando a necessidade de tratar o campo titulo/ano, e pode também ajudar na performance dos demais serviços da companhia que consomem esse dado.
+        Separar o título e o ano em colunas específicas ajuda a manter a consistência da base, melhora o processo de preparação dos dados retirando a necessidade de tratar o campo título/ano, e pode também ajudar na performance dos demais serviços da companhia que consomem esse dado.
 
         Considerando ainda que existem títulos onde há parênteses no nome, como por exemplo:
 
@@ -119,7 +119,7 @@
         Eat Drink Man Woman (Yin shi nan nu) (1994)
         ````
 
-        A separação desses dados se torna ainda mais crucial, evitando que títulos sejam deformados caso a única validação nos pré processamentos seja ignorar dados entre parenteses.
+        A separação desses dados se torna ainda mais crucial, evitando que títulos sejam deformados caso a única validação no pré-processamento seja ignorar dados entre parêntese.
 
     - **Padronização na nomenclatura dos gêneros:**
 
@@ -133,23 +133,23 @@
         ````
     - **Gêneros ausentes:**
 
-        Quando um filme não possúi o gênero descrito, na base a coluna gênero recebe o termo:
+        Quando um filme não possui o gênero descrito, na base a coluna gênero recebe o termo:
         ````
         (no genres listed)
         ````
-        O ideal, seria deixar a coluna nula. A validação por nulo é bem mais simples e é uma rotina padrão na análise de dados, facilitando a validação nos serviços que consomem esse dado, e também o pré-processamento descartando a necessidade de procurar por um termo específico.
+        O ideal seria deixar a coluna nula. A validação por nulo é bem mais simples e é uma rotina padrão na análise de dados, facilitando a validação nos serviços que consomem esse dado, e também o pré-processamento descartando a necessidade de procurar por um termo específico.
 
     - **Ausência de dados gerais:**
-      Em sistemas de streaming, comummente os usuários podem configurar/tender (a) certas preferências que podem incluir:
+      Em sistemas de streaming, comumente os usuários podem configurar/tender (a) certas preferências que podem incluir:
       
         - Classificação indicativa
         - Elenco
         - Duração
         - País de origem
 
-      Essas informações inrrequiceriam a análise de dados e resultaria em recomendações mais acuradas e precisas, porém, são informações que não estão disponíveis nas bases fornecidas.
+      Essas informações poderiam enriquecer a análise de dados e resultaria em recomendações mais acuradas e precisas, porém, são informações que não estão disponíveis nas bases fornecidas.
     
-    Não foram identificados pontos de melhorias significantes na base ratings.
+    Não foram identificados pontos de melhorias significativos na base ratings.
 
   <br/>
 </div>
@@ -190,14 +190,14 @@ Ambos os modelos possuem vantagens específicas baseadas no cenário de uso, e e
      - Quando há informações detalhadas sobre os itens, como descrições, gêneros, diretores, etc.
      - Quando as preferências dos usuários estão fortemente ligadas às características dos itens.
 
-O detalhamento acima resume o motivo da nossa escolha nos modelos apresentados. Com a filtragem colaborativa baseada em itens consideramos as avaliações, são dados que mudam com o tempo, mudam conforme a interação dos usuários e as preferencias são influenciadas pela escolha de usuários semelhantes. Já a filtragem baseada em conteúdo exige informações complementares como os gêneros dos filmes, fazendo assim a recomendação com base na caracteristica especifica do item, caracteristica essas que o usuário já demonstrou interesse.
+O detalhamento acima resume o motivo da nossa escolha nos modelos apresentados. Com a filtragem colaborativa baseada em itens as avaliações são consideradas, são dados que mudam com o tempo, mudam conforme a interação dos usuários e as preferências são influenciadas pela escolha de usuários semelhantes. Já a filtragem baseada em conteúdo exige informações complementares como os gêneros dos filmes, fazendo assim a recomendação com base na característica específica do item, característica essas que o usuário já demonstrou interesse.
 
 
 ### Hiperparâmetros:
 
 Buscando uma abordagem mais orientada ao cliente, optamos por disponibilizar uma ampla variedade de possibilidades e combinações de hiperparâmetros. Essa flexibilidade tem como objetivo atender às diversas necessidades do negócio, proporcionando uma experiência mais rica e adaptada às preferências individuais ou coletivas no cenário atual. Reconhecemos que a base de dados está sujeita a mudanças e crescimento, e novas regras de negócios podem surgir. A intenção por trás dessa escolha é dotar o sistema de recomendações da máxima flexibilidade possível, permitindo uma resposta ágil a essas mudanças em prazos reduzidos e com o mínimo esforço necessário.
 
-Cada um dos modelos foi configurado com hiperparâmetros específicos, dando ao cliente a liberdade de escolher aquele que melhor se adequa às suas necessidades. Contudo, estabelecemos valores padrões para casos em que a especificação não estiver presente. Essa abordagem visa simplificar o processo de configuração, garantindo que o sistema continue operando de maneira eficiente mesmo quando uma escolha personalizada não for feita.
+Cada um dos modelos foi configurado com hiperparâmetros específicos, dando ao cliente a liberdade de escolher aquele que melhor se adequa às suas necessidades. Contudo, estabelecemos valores padrões para casos em que a especificação não esteja presente. Essa abordagem visa simplificar o processo de configuração, garantindo que o sistema continue operando de maneira eficiente mesmo quando uma escolha personalizada não for feita.
 
 
 ### Filtragem Colaborativa Baseada em Itens:
@@ -206,7 +206,7 @@ Cada um dos modelos foi configurado com hiperparâmetros específicos, dando ao 
     
     - *Especificações:*
       - Aceita valores a partir de 3 até o tamanho da lista (valor padrão: 9).
-      - Aceita apenas valores impares para evitar empates nas votações.
+      - Aceita apenas valores ímpares para evitar empates nas votações.
       - Caso inserido valor par, o arredondamento será realizado para baixo (-1).
     
     - *Definições:*
