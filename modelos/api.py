@@ -10,6 +10,12 @@ app = Flask(__name__)
 api = Api(app, version='1.0', title='recomenda.ai', description='API For movies recommendation')
 namespace = api.namespace('movies_recommendation', description='Movie recommendation system with models based on Item and Content')
 
+#api.add_namespace(content_namespace)
+
+@app.route('/swagger.json')
+def swagger_json():
+    return api.as_postman(urlvars=False, swagger=True)
+
 
 SWAGGER_URL = '/api/docs'
 API_URL = '/swagger.json'
@@ -18,7 +24,8 @@ swaggerui_blueprint = get_swaggerui_blueprint(
     SWAGGER_URL,
     API_URL,
     config={
-        'app_name': "recomenda.ai"
+        'app_name': "recomenda.ai",
+        'docExpansion': 'full'
     }
 )
 
