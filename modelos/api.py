@@ -8,11 +8,11 @@ from flask_swagger_ui import get_swaggerui_blueprint
 
 app = Flask(__name__)
 api = Api(app, version='1.0', title='recomenda.ai', description='API For movies recommendation')
-namespace = api.namespace('movies_recommendation', description='Namespace with movie recommendation models based on Item and Content')
+namespace = api.namespace('movies_recommendation', description='Movie recommendation system with models based on Item and Content')
 
 
-SWAGGER_URL = '/api/docs'  # URL para a página Swagger-UI
-API_URL = '/swagger.json'  # URL para o arquivo Swagger.json
+SWAGGER_URL = '/api/docs'
+API_URL = '/swagger.json'
 
 swaggerui_blueprint = get_swaggerui_blueprint(
     SWAGGER_URL,
