@@ -53,7 +53,7 @@
   </span> 
 
   <br/>  
-  **Considerações:**
+  <b>Considerações:</b>
 
   * A recomendação deve ocorrer de duas formas. 
     * [x] A primeira deve ser uma recomendação baseada no histórico do usuário.
@@ -66,7 +66,7 @@
 
 
   <br/>
-  **Exigências:**
+  <b>Exigências:</b>
 
   * [x] O desenvolvimento deve ser feito em Python (versão 3.8 ou superior)
   * [ ] O ambiente de desenvolvimento deve ser capaz de ser reproduzido a qualquer momento.
