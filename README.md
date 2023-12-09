@@ -202,6 +202,8 @@ Cada um dos modelos foi configurado com hiperparâmetros específicos, dando ao 
 
 ### Filtragem Colaborativa Baseada em Itens:
 
+  ![Item Based][item-based] 
+
   - **n_neighbors:**
     
     - *Especificações:*
@@ -243,6 +245,9 @@ Cada um dos modelos foi configurado com hiperparâmetros específicos, dando ao 
         - *auto*: Organiza os pontos em uma estrutura de árvore binária, dividindo recursivamente o espaço em regiões k-dimensionais. É eficiente para conjuntos de dados de baixa a média dimensionalidade, mas pode não ser ideal para conjuntos de dados de alta dimensionalidade.
 
 ### Filtragem Baseada em Conteúdo:
+
+  ![Content Based][content-based] 
+
 
   - **stopwords**
   
@@ -394,6 +399,7 @@ Agradecemos ao professor Marco Calijorne por nos desafiar e orientar ao longo de
 <!-- MARKDOWN LINKS & IMAGES -->
 [product-screenshot]: readme_img/screenshot.png
 [product-deploy]: readme_img/deploy/pipeline-deploy.png
-
+[item-based]: readme_img/item-based.png
+[content-based]: readme_img/content-based.png
 [Python]: https://img.shields.io/badge/Python-000000?style=for-the-badge&logo=python&logoColor=white
 [Python-url]: https://www.python.org/
