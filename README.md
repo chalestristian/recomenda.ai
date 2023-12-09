@@ -305,7 +305,7 @@ Este relatório visa fornecer uma análise dos modelos de Filtragem Baseada em I
 # Instalar & Executar
 <div id="instalar">
 
-### Guia de Execução Local com Docker Compose
+### Guia de configuração e execução local com docker compose
 
 Este guia fornece instruções passo a passo sobre como executar a aplicação localmente usando o Docker Compose.
 
@@ -315,7 +315,7 @@ Certifique-se de ter os seguintes pré-requisitos instalados em sua máquina:
 
 - [Docker](https://www.docker.com/get-started)
 
-### Passos para Execução Local
+### Passos para configuração local
 
 #### 1. Clone o Repositório
 
@@ -341,6 +341,8 @@ Uma vez que os contêineres estejam em execução, a aplicação deve estar aces
 
 - [http://localhost:5000](http://localhost:5000)
 
+  ![Swagger][swagger] 
+
 #### 4. Parar e Limpar
 
 Para parar os contêineres e limpar os recursos, execute:
@@ -350,6 +352,51 @@ docker compose down
 ```
 
 Isso encerrará a execução da aplicação e removerá os contêineres.
+
+### Passos para execução local
+
+Para executar, forneça os parâmetros conforme documentados no swagger e na [seção design.](#design)
+
+#### Recomendação baseada em item:
+
+  Para os parâmetros *algorithm, metric, n_neighbors* os valores possíveis estão documentados logo acima de cada campo:
+
+  ![Item Based][item-based] 
+
+  Já o parâmetro movie_title reque que um título (e nesse modelo, apenas um título é permitido) seja informado.
+
+  Os títulos podem ser consultados aqui: [movies](/dataset/movies.csv).
+
+  **CONSIDERAÇÕES:**
+
+  - Alguns títulos podem não estar disponíveis para consultas por diversos motivos, como:
+    - Dados ausentes
+    - Dados incompletos
+  
+    Nesses casos os dados são desconsiderados da análise, e o retorno será:
+
+    ```
+    {
+      "message": "Internal Server Error"
+    }
+    ```
+  - Conforme explicado na seção [dataset](#dataset), é comum que os filmes venham com o ano em seu título, porém, nas consultas, apenas o nome do filme deve ser informado, sendo case sensitive.
+
+  Exemplo de nome de filme: ````Bushwhacked (1995)````
+  
+  Nome a ser inserido no input movie_title: ````Bushwhacked````
+
+#### Recomendação baseada em conteúdo:
+
+  No que tange parâmetros, a mesma regra apontada acima é valida também aqui:
+
+  ![Content Based][content-based] 
+
+  O diferencial está no movie title, onde, nesse caso, mais de um valor é aceito, sendo necessário a separação por pipe (|), sem espaço, por exemplo:
+
+  ````
+  Bushwhacked|Toy Story|Bambi
+  ````
 
 #### Problemas Comuns:
 
@@ -400,6 +447,7 @@ Agradecemos ao professor Marco Calijorne por nos desafiar e orientar ao longo de
 [product-screenshot]: readme_img/screenshot.png
 [product-deploy]: readme_img/deploy/pipeline-deploy.png
 [item-based]: readme_img/item-based.png
+[swagger]: readme_img/swagger.png
 [content-based]: readme_img/content-based.png
 [Python]: https://img.shields.io/badge/Python-000000?style=for-the-badge&logo=python&logoColor=white
 [Python-url]: https://www.python.org/
