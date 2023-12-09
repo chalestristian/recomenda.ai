@@ -307,7 +307,6 @@ Este guia fornece instruções passo a passo sobre como executar a aplicação l
 Certifique-se de ter os seguintes pré-requisitos instalados em sua máquina:
 
 - [Docker](https://www.docker.com/get-started)
-- [Docker Compose](https://docs.docker.com/compose/install/)
 
 ### Passos para Execução Local
 
