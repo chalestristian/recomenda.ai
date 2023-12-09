@@ -291,6 +291,8 @@ Em resumo, esse modelo de deploy visa otimizar a entrega contínua, promover a a
 # Relatório
 <div id="artefatos">
 
+Este relatório visa fornecer uma análise dos modelos de Filtragem Baseada em Itens e Filtragem Baseada em Conteúdo para o sistema de recomendação de filmes da Netflix:  
+
 [Relatório de desempenho dos modelos](https://docs.google.com/document/d/1-QmSaHaDGDmoHfN2vV1antKq7YPRROpmvfZnWiRDsGA/edit?usp=sharing)
   <br/>
 </div>
