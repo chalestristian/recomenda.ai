@@ -10,7 +10,6 @@ app = Flask(__name__)
 api = Api(app, version='1.0', title='recomenda.ai', description='API For movies recommendation')
 namespace = api.namespace('movies_recommendation', description='Movie recommendation system with models based on Item and Content')
 
-#api.add_namespace(content_namespace)
 
 @app.route('/swagger.json')
 def swagger_json():
